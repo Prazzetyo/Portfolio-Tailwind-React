@@ -5,11 +5,13 @@ import portfolioTwitter from "../src/assets/images/portfolio/twittersearch.png";
 import portfolioWarehouse from "../src/assets/images/portfolio/warehousegudang.png";
 import portfolioFinna from "../src/assets/images/portfolio/finnaproduk.png";
 import portfolioRSKM from "../src/assets/images/portfolio/ermrskm.jpg";
-import clientGoogle from "../src/assets/images/clients/google.png";
-import clientGojek from "../src/assets/images/clients/gojek.png";
-import clientTokopedia from "../src/assets/images/clients/tokopedia.png";
 import clientFinna from "../src/assets/images/clients/finna.png";
 import clientRSKM from "../src/assets/images/clients/logo_rskm.png";
+import cvId from "../src/assets/cv/cv-dwi-prasetyo-id.pdf";
+import cvEn from "../src/assets/cv/cv-dwi-prasetyo-en.pdf";
+import logoGmail from "../src/assets/images/logo/gmail.png";
+import logoWa from "../src/assets/images/logo/whatsapp.png";
+import logoLinkedin from "../src/assets/images/logo/linkedin.png";
 
 function App() {
   // Hamburger Start
@@ -275,14 +277,14 @@ function App() {
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <a
-                  href="/src/assets/cv/cv-dwi-prasetyo-id.pdf"
+                  href={cvId}
                   target="_blank"
                   className="rounded-lg bg-primary px-6 py-3 text-white font-semibold transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg"
                 >
                   📄 CV Indonesia
                 </a>
                 <a
-                  href="/src/assets/cv/cv-dwi-prasetyo-en.pdf"
+                  href={cvEn}
                   target="_blank"
                   className="rounded-lg border border-primary px-6 py-3 text-primary font-semibold transition duration-300 ease-in-out hover:bg-primary hover:text-white hover:shadow-lg"
                 >
@@ -481,24 +483,23 @@ function App() {
           <div className="mx-auto max-w-xl space-y-6 text-center">
             {/* Email */}
             <a
-            href="mailto:prasetyomuhammaddwi5@gmail.com"
-            className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
-          >
+              href="mailto:prasetyomuhammaddwi5@gmail.com"
+              className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
+            >
             <img
-              src="/src/assets/images/logo/gmail.png"
+              src={logoGmail}
               alt="Email"
               className="h-6 w-6"
             />
             prasetyomuhammaddwi5@gmail.com
-          </a>
-
+            </a>
             {/* Phone */}
             <a
               href="http://wa.me/6285826125994" target="_blank"
               className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
             >
               <img
-              src="/src/assets/images/logo/whatsapp.png"
+              src={logoWa}
               alt="WA"
               className="h-6 w-6"
               />
@@ -513,8 +514,8 @@ function App() {
               className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
             >
               <img
-              src="/src/assets/images/logo/linkedin.png"
-              alt="WA"
+              src={logoLinkedin}
+              alt="Linkedin"
               className="h-6 w-6"
               />LinkedIn
             </a>
