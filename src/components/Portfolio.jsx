@@ -7,107 +7,65 @@ import portfolioRSKM from "../../src/assets/images/portfolio/ermrskm.jpg";
 
 export default function Portfolio() {
   return (
-    <section
-            id="portfolio"
-            className="bg-white pb-16 pt-36 dark:bg-dark"
-          >
-        <div className="container">
+    <section id="portfolio" className="bg-white pb-16 pt-36 dark:bg-dark">
+      <div className="container">
         <div className="w-full px-4">
-            <div className="mx-auto mb-16 max-w-xl text-center">
-            <h4 className="mb-2 text-lg font-semibold uppercase text-primary">
-                Portfolio
-            </h4>
-            <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white">
-                Projects Terbaru
-            </h2>
+          <div className="mx-auto mb-16 max-w-xl text-center">
+            <h4 className="mb-2 text-lg font-semibold uppercase text-primary">Portfolio</h4>
+            <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white">Proyek Terbaru</h2>
             <p className="font-medium text-secondary">
-                Inilah beberapa karya yang saya buat dengan hati, logika, dan sedikit
-                sentuhan desain. Setiap kode punya cerita. 💻✨
+              Koleksi proyek pengembangan perangkat lunak yang menunjukkan keahlian teknis, integrasi sistem, dan solusi arsitektur yang dapat diskalakan.
             </p>
-            </div>
+          </div>
         </div>
         <div className="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
-        <div className="mb-12 p-4 md:w-1/2">
+          <div className="mb-12 p-4 md:w-1/2">
             <div className="overflow-hidden rounded-md shadow-md">
-                <img src={portfolioRSKM} alt="RSKM" className="w-full" />
+              <img src={portfolioRSKM} alt="RSKM" className="w-full" />
             </div>
-            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">
-                ERM RSKM (2023-2025)
-            </h3>
+            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">ERM RSKM (2023-2025)</h3>
             <p className="text-base font-medium text-secondary">
-                Projects gede ini aku kerjain bareng tim buat bikin sistem rekam medis elektronik di Rumah Sakit 
-                Kristen Mojowarno. Jadi semua data pasien — dari IGD, rawat jalan, rawat inap, lab, radiologi, 
-                farmasi sampai billing — nyambung jadi satu. Intinya biar dokter & perawat nggak ribet lagi, 
-                pasien juga lebih cepat dilayani. 🏥💻  
-                Selain itu, sistem ini juga udah diintegrasikan dengan <span className="font-semibold text-dark dark:text-white">Satu Sehat </span>  
-                untuk memenuhi standar Kementerian Kesehatan. 📡✅
+              Membangun sistem rekam medis elektronik (EMR) kolaboratif dengan tim lintas fungsi di Rumah Sakit Kristen Mojowarno. Platform ini mengintegrasikan seluruh operasional rumah sakit termasuk IGD, rawat jalan, rawat inap, laboratorium, radiologi, farmasi, dan billing. Selain itu, mengimplementasikan integrasi SATUSEHAT API untuk memenuhi standar Kementerian Kesehatan.
             </p>
-            </div>
-            <div className="mb-12 p-4 md:w-1/2">
+          </div>
+          <div className="mb-12 p-4 md:w-1/2">
             <div className="overflow-hidden rounded-md shadow-md">
-                <img src={portfolioFinna} alt="Finna" className="w-full" />
+              <img src={portfolioFinna} alt="Finna" className="w-full" />
             </div>
-            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">
-                Finna (2022-2023)
-            </h3>
+            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">Finna (2022-2023)</h3>
             <p className="text-base font-medium text-secondary">
-                Buat seperti monitoring sales dan penjualannya, tujuannya biar proses bisnis mereka lebih 
-                gampang dipantau dan dikelola. Jadi nggak perlu ribet manual lagi, tinggal 
-                klik-klik udah beres. 🍪📊
+              Merancang dan mengembangkan sistem monitoring penjualan enterprise untuk mengoptimalkan pelacakan penjualan dan alur kerja operasional, serta menyederhanakan manajemen data dan meningkatkan akurasi pelaporan.
             </p>
-            </div>
-            <div className="mb-12 p-4 md:w-1/2">
+          </div>
+          <div className="mb-12 p-4 md:w-1/2">
             <div className="overflow-hidden rounded-md shadow-md">
-                <img
-                src={portfolioTwitter}
-                alt="Twitter Sentiment"
-                className="w-full"
-                />
+              <img src={portfolioTwitter} alt="Twitter Sentiment" className="w-full" />
             </div>
-            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">
-                Twitter Sentiment Analysis (2022)
-            </h3>
+            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">Twitter Sentiment Analysis (2022)</h3>
             <p className="text-base font-medium text-secondary">
-                Projects ini dibuat pas submission akhir di Kampus Merdeka bareng Universitas 
-                Indonesia (AICI). Fungsinya simpel: cari keyword di Twitter, terus dicek 
-                sentimennya—positif, negatif, atau netral. Kayak detektor mood netizen. 🤭
+              Mengembangkan alat analisis sentimen sebagai penugasan akhir Kampus Merdeka bersama Universitas Indonesia (AICI), mampu mencari kata kunci dan mengkategorikan sentimen menjadi positif, negatif, atau netral.
             </p>
-            </div>
-            <div className="mb-12 p-4 md:w-1/2">
+          </div>
+          <div className="mb-12 p-4 md:w-1/2">
             <div className="overflow-hidden rounded-md shadow-md">
-                <img
-                src={portfolioWarehouse}
-                alt="Warehouse"
-                className="w-full"
-                />
+              <img src={portfolioWarehouse} alt="Warehouse" className="w-full" />
             </div>
-            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">
-                Warehouse Management (2022)
-            </h3>
+            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">Warehouse Management (2022)</h3>
             <p className="text-base font-medium text-secondary">
-                Buat monitoring gudang pupuk di PT Bersih Jaya. Intinya biar stok dan distribusi pupuk bisa lebih gampang dipantau, 
-                nggak ribet lagi pakai cara manual. 🚛📦
+              Membangun solusi pelacakan stok dan distribusi untuk operasional gudang pupuk di PT Bersih Jaya, meningkatkan visibilitas inventaris dan efisiensi rantai pasok.
             </p>
-            </div>
-            <div className="mb-12 p-4 md:w-1/2">
+          </div>
+          <div className="mb-12 p-4 md:w-1/2">
             <div className="overflow-hidden rounded-md shadow-md">
-                <img
-                src={portfolioMaknaJiwa}
-                alt="Makna Jiwa"
-                className="w-full"
-                />
+              <img src={portfolioMaknaJiwa} alt="Makna Jiwa" className="w-full" />
             </div>
-            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">
-                Makna Jiwa (2021)
-            </h3>
+            <h3 className="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white">Makna Jiwa (2021)</h3>
             <p className="text-base font-medium text-secondary">
-                Projects ini lahir dari submission akhir di program Kampus Merdeka Dicoding. 
-                Intinya bikin aplikasi yang bisa nemenin dan bantu orang lebih peduli sama 
-                kesehatan mentalnya. ✨
+              Membuat platform dukungan kesehatan mental sebagai proyek akhir program Dicoding Kampus Merdeka, dengan fokus pada fitur kesejahteraan yang ramah pengguna dan mudah diakses.
             </p>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </section>
   )
 }
