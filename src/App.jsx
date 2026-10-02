@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Hero from "./components/Hero";
-import About from "./components/About";
+// import About from "./components/About";
 import Portfolio from "./components/Portfolio";
+import Experience from "./components/Experience";
+import Skill from "./components/Skill";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -20,8 +22,16 @@ function App() {
       {/* Hero Section End */}
 
       {/* About Section Start */}
-      <About/>
+      {/* <About/> */}
       {/* About Section End */}
+
+      {/* Experience Section Start */}
+      <Experience/>
+      {/* Experience Section End */}
+
+      {/* Skill Section Start */}
+      <Skill/>
+      {/* Skill Section End */}
 
       {/* Portfolio Section Start */}
       <Portfolio/>

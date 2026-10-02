@@ -1,67 +1,59 @@
-import React from 'react'
-import logoGmail from "../../src/assets/images/logo/gmail.png";
-import logoWa from "../../src/assets/images/logo/whatsapp.png";
-import logoLinkedin from "../../src/assets/images/logo/linkedin.png";
+import React, { useState, useEffect } from 'react'
+import { MessageCircle, X } from 'lucide-react'
+import logoGmail from "../assets/images/logo/gmail.png";
+import logoWa from "../assets/images/logo/whatsapp.png";
+import logoLinkedin from "../assets/images/logo/linkedin.png";
 
 export default function Contact() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <section id="contact" className="pb-32 pt-36 dark:bg-slate-800">
-        <div className="container">
-          <div className="w-full px-4">
-            <div className="mx-auto mb-16 max-w-xl text-center">
-              <h4 className="mb-2 text-lg font-semibold uppercase text-primary">
-                Contact
-              </h4>
-              <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white">
-                Feel free to contact me
-              </h2>
-              <p className="font-medium text-secondary">
-                Terhubung dengan saya melalui platform berikut.
-              </p>
-            </div>
-          </div>
+    <div className="fixed bottom-[76px] right-4 z-[9999] flex flex-col items-center gap-3">
+      {/* Container for Contact Buttons with animation */}
+      <div className={`flex flex-col gap-3 transition-all duration-500 ease-out ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0 pointer-events-none'}`}>
+        {/* Email */}
+        <a
+          href="mailto:prasetyomuhammaddwi5@gmail.com"
+          className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white p-2.5 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95 dark:border-slate-700 dark:bg-slate-800"
+          aria-label="Email"
+        >
+          <img src={logoGmail} alt="Email" className="h-6 w-6 object-contain" />
+          <span className="absolute right-full mr-3 hidden rounded-md bg-slate-900 px-2.5 py-1 text-xs font-medium text-white shadow-md group-hover:block dark:bg-slate-100 dark:text-slate-900 whitespace-nowrap">Email</span>
+        </a>
 
-          <div className="mx-auto max-w-xl space-y-6 text-center">
-            {/* Email */}
-            <a
-              href="mailto:prasetyomuhammaddwi5@gmail.com"
-              className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
-            >
-            <img
-              src={logoGmail}
-              alt="Email"
-              className="h-6 w-6"
-            />
-            prasetyomuhammaddwi5@gmail.com
-            </a>
-            {/* Phone */}
-            <a
-              href="http://wa.me/6285826125994" target="_blank"
-              className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
-            >
-              <img
-              src={logoWa}
-              alt="WA"
-              className="h-6 w-6"
-              />
-              Whatsapp Me
-            </a>
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/6285826125994"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white p-2.5 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95 dark:border-slate-700 dark:bg-slate-800"
+          aria-label="WhatsApp"
+        >
+          <img src={logoWa} alt="WhatsApp" className="h-6 w-6 object-contain" />
+          <span className="absolute right-full mr-3 hidden rounded-md bg-slate-900 px-2.5 py-1 text-xs font-medium text-white shadow-md group-hover:block dark:bg-slate-100 dark:text-slate-900 whitespace-nowrap">WhatsApp</span>
+        </a>
 
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/muhammad-dwi-prasetyo-33203721b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 rounded-lg bg-slate-200 p-4 text-dark shadow hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
-            >
-              <img
-              src={logoLinkedin}
-              alt="Linkedin"
-              className="h-6 w-6"
-              />LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/muhammad-dwi-prasetyo-33203721b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white p-2.5 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95 dark:border-slate-700 dark:bg-slate-800"
+          aria-label="LinkedIn"
+        >
+          <img src={logoLinkedin} alt="LinkedIn" className="h-6 w-6 object-contain" />
+          <span className="absolute right-full mr-3 hidden rounded-md bg-slate-900 px-2.5 py-1 text-xs font-medium text-white shadow-md group-hover:block dark:bg-slate-100 dark:text-slate-900 whitespace-nowrap">LinkedIn</span>
+        </a>
+      </div>
+
+      {/* Toggle Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-600 active:scale-95"
+        aria-label="Toggle Contact"
+      >
+        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+      </button>
+    </div>
   )
 }

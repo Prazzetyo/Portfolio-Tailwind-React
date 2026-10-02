@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Sun, Moon } from 'lucide-react'
 
 export default function Header() {
-  // Hamburger Start
   const [showNav, setShowNav] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -9,176 +9,161 @@ export default function Header() {
     setShowNav(!showNav);
     setShowMenu(!showMenu);
   };
-  // Hamburger End
 
-  // Klik di luar hamburger Start
   const navRef = useRef();
   const menuRef = useRef();
 
-  window.addEventListener("click", (e) => {
-    if (e.target !== navRef.current && e.target !== menuRef.current) {
-      setShowNav(false);
-      setShowMenu(false);
-    }
-  });
-  // Klik di luar hamburger End
-
-  // Navbar Fixed Start
-  window.onscroll = function () {
-    const header = document.querySelector("header");
-    const fixedNav = header.offsetTop;
-    const toTop = document.querySelector("#to-top");
-
-    if (window.pageYOffset > fixedNav) {
-      header.classList.add("navbar-fixed");
-      toTop.classList.remove("hidden");
-      toTop.classList.add("flex");
-    } else {
-      header.classList.remove("navbar-fixed");
-      toTop.classList.remove("flex");
-      toTop.classList.add("hidden");
-    }
-  };
-  // Navbar Fixed End
-
-  // Darkmode toggle Start
-  const html = document.querySelector("html");
-
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme")
-      ? localStorage.getItem("theme") == "dark"
-        ? true
-        : false
-      : false
-  );
-
-  const handleTheme = (event) => {
-    setTheme(event.target.checked);
-    if (theme == false) {
-      html.classList.add("dark");
-      localStorage.theme = "dark";
-    } else {
-      html.classList.remove("dark");
-      localStorage.theme = "light";
-    }
-  };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        navRef.current &&
+        !navRef.current.contains(e.target) &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target)
+      ) {
+        setShowNav(false);
+        setShowMenu(false);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, []);
 
   useEffect(() => {
-    const darkToggle = document.getElementById("dark-toggle");
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      darkToggle.checked = true;
-    } else {
-      darkToggle.checked = false;
+    const handleScroll = () => {
+      const toTop = document.querySelector("#to-top");
+
+      if (window.pageYOffset > 100) {
+        toTop?.classList.remove("hidden");
+        toTop?.classList.add("flex");
+      } else {
+        toTop?.classList.remove("flex");
+        toTop?.classList.add("hidden");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
     }
+    return false;
   });
-  // Darkmode toggle End
+
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    }
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(!theme);
+  };
+
   return (
     <header
-        className="absolute left-0 top-0 z-10 flex w-full items-center
-      bg-transparent"
-      >
-        <div className="container">
-          <div className="relative flex items-center justify-between">
-            <div className="px-4">
-              <a
-                href="#home"
-                className="block py-6 text-lg font-bold text-primary"
-              >
-                dwipras
-              </a>
-            </div>
-            <div className="flex items-center px-4">
-              <button
-                id="hamburger"
-                ref={navRef}
-                name="hamburger"
-                type="button"
-                className={`absolute right-4 block lg:hidden ${
-                  showNav ? "hamburger-active" : ""
-                }`}
-                onClick={toggleNav}
-              >
-                <span className="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
-                <span className="hamburger-line transition duration-300 ease-in-out"></span>
-                <span className="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span>
-              </button>
-              <nav
-                id="nav-menu"
-                ref={menuRef}
-                className={`${
-                  showMenu ? "" : "hidden"
-                } absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark 
-                dark:shadow-slate-500 lg:static 
-                lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent`}
-              >
-                <ul className="block lg:flex">
-                  <li className="group">
-                    <a
-                      href="#home"
-                      className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white lg:mx-6"
+      className={`fixed left-0 top-0 z-[9999] flex w-full items-center backdrop-blur-md transition-all duration-300 ${
+        theme
+          ? 'bg-dark/85 border-b border-slate-800/60 shadow-slate-900/50'
+          : 'bg-white/85 border-b border-slate-200/60 shadow-slate-200/50'
+      }`}
+    >
+      <div className="container">
+        <div className="relative flex items-center justify-between">
+          <div className="px-4">
+            <a href="#home" className="block py-5 text-xl font-bold text-primary">
+              dwipras
+            </a>
+          </div>
+          <div className="flex items-center px-4">
+            <button
+              id="hamburger"
+              ref={navRef}
+              name="hamburger"
+              type="button"
+              className={`absolute right-4 block lg:hidden ${
+                showNav ? "hamburger-active" : ""
+              }`}
+              onClick={toggleNav}
+            >
+              <span className="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
+              <span className="hamburger-line transition duration-300 ease-in-out"></span>
+              <span className="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span>
+            </button>
+            <nav
+              id="nav-menu"
+              ref={menuRef}
+              className={`${
+                showMenu ? "block" : "hidden"
+              } absolute right-4 top-full w-full max-w-[250px] rounded-xl bg-white/95 p-4 shadow-xl backdrop-blur-md dark:bg-slate-900/95 dark:shadow-slate-950 border border-slate-200 dark:border-slate-800 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none lg:border-none lg:backdrop-blur-none lg:dark:bg-transparent`}
+            >
+              <ul className="block lg:flex lg:items-center">
+                <li className="group">
+                  <a
+                    href="#home"
+                    className="mx-4 flex py-2 text-base font-medium text-slate-700 transition-colors duration-300 hover:text-primary dark:text-slate-200 dark:hover:text-primary"
+                  >
+                    Beranda
+                  </a>
+                </li>
+                <li className="group">
+                  <a
+                    href="#experience"
+                    className="mx-4 flex py-2 text-base font-medium text-slate-700 transition-colors duration-300 hover:text-primary dark:text-slate-200 dark:hover:text-primary"
+                  >
+                    Tentang Saya
+                  </a>
+                </li>
+                <li className="group">
+                  <a
+                    href="#portfolio"
+                    className="mx-4 flex py-2 text-base font-medium text-slate-700 transition-colors duration-300 hover:text-primary dark:text-slate-200 dark:hover:text-primary"
+                  >
+                    Portfolio
+                  </a>
+                </li>
+                <li className="group">
+                  <a
+                    href="#clients"
+                    className="mx-4 flex py-2 text-base font-medium text-slate-700 transition-colors duration-300 hover:text-primary dark:text-slate-200 dark:hover:text-primary"
+                  >
+                    Clients
+                  </a>
+                </li>
+                <li className="mt-3 flex items-center pl-4 lg:mt-0 lg:pl-2">
+                  <button
+                    id="dark-toggle"
+                    onClick={handleTheme}
+                    className={`relative flex h-6 w-11 items-center rounded-full transition-colors duration-300 ${
+                      theme ? 'bg-blue-500' : 'bg-slate-300'
+                    }`}
+                    aria-label="Toggle dark mode"
+                  >
+                    <div
+                      className={`absolute left-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition-transform duration-300 ease-in-out ${
+                        theme ? 'translate-x-5' : ''
+                      }`}
                     >
-                      Beranda
-                    </a>
-                  </li>
-                  <li className="group">
-                    <a
-                      href="#about"
-                      className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white lg:mx-6"
-                    >
-                      Tentang Saya
-                    </a>
-                  </li>
-                  <li className="group">
-                    <a
-                      href="#portfolio"
-                      className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white lg:mx-6"
-                    >
-                      Portfolio
-                    </a>
-                  </li>
-                  <li className="group">
-                    <a
-                      href="#clients"
-                      className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white lg:mx-6"
-                    >
-                      Clients
-                    </a>
-                  </li>
-                  <li className="group">
-                    <a
-                      href="#contact"
-                      className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white lg:mx-6"
-                    >
-                      Contact
-                    </a>
-                  </li>
-                  <li className="mt-3 flex items-center pl-8 lg:mt-0">
-                    <div className="flex">
-                      <span className="mr-2 text-sm text-slate-500">light</span>
-                      <input
-                        type="checkbox"
-                        id="dark-toggle"
-                        value={theme}
-                        onChange={handleTheme}
-                        className="hidden"
-                      />
-                      <label htmlFor="dark-toggle">
-                        <div className="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
-                          <div className="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
-                        </div>
-                      </label>
-                      <span className="ml-2 text-sm text-slate-500">dark</span>
+                      {theme ? <Sun size={12} className="text-amber-500" /> : <Moon size={12} className="text-slate-700" />}
                     </div>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
   )
 }

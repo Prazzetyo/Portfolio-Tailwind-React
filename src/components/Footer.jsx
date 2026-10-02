@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-dark pb-8 pt-16">
         <div className="container text-center">
           {/* Nama */}
-          <h2 className="mb-3 text-2xl font-bold text-white">Dwi Prasetyo</h2>
+          <h2 className="mb-3 text-2xl font-bold text-white">Muhammad Dwi Prasetyo</h2>
           <p className="mb-6 text-slate-400">Programmer | Student | Tech Enthusiast</p>
 
           {/* Sosmed */}
@@ -87,7 +87,7 @@ export default function Footer() {
           {/* Copyright */}
           <p className="text-sm text-slate-500">
             © {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-primary">Dwi Prasetyo</span>. 
+            <span className="font-semibold text-primary">Muhammad Dwi Prasetyo</span>. 
             Built with <span className="text-sky-500 font-bold">Tailwind CSS</span>.
           </p>
         </div>

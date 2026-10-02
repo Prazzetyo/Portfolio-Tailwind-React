@@ -1,5 +1,7 @@
 import React from "react";
 import fotoDwi from "../assets/images/dwi.png";
+import cvId from "../../src/assets/cv/cv-dwi-prasetyo-id.pdf";
+import cvEn from "../../src/assets/cv/cv-dwi-prasetyo-en.pdf";
 
 export default function Hero() {
   return (
@@ -10,7 +12,7 @@ export default function Hero() {
             <h1 className="text-base font-semibold text-primary md:text-xl">
               Halo 👋, saya{" "}
               <span className="mt-1 block text-4xl font-bold text-dark dark:text-white lg:text-5xl">
-                Dwi Prasetyo
+                Muhammad Dwi Prasetyo
               </span>
             </h1>
             <h2 className="mb-5 text-lg font-medium text-secondary lg:text-2xl">
@@ -22,13 +24,32 @@ export default function Hero() {
               ASP.NET Core MVC petualangan terbaru. 
               Misi saya: bukan cuma nge-push commit, tapi juga nge-push semangat tim 🚀.
             </p>
-            <a
-              href="#contact"
-              className="rounded-full bg-primary px-8 py-3 text-base font-semibold 
-              text-white transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg"
-            >
-              Hubungi Saya
-            </a>
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 mt-4">
+              <a
+                href={cvId}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg bg-secondary px-5 py-3 text-sm font-semibold text-white transition duration-300 ease-in-out hover:bg-slate-700 hover:shadow-lg sm:text-base"
+              >
+                📄 CV Indonesia
+              </a>
+              <a
+                href={cvEn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-secondary px-5 py-3 text-sm font-semibold text-secondary transition duration-300 ease-in-out hover:bg-secondary hover:text-white hover:shadow-lg sm:text-base dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-700 dark:hover:text-white dark:hover:border-slate-700"
+              >
+                📄 CV English
+              </a>
+              <a
+                href="https://wa.me/6285826125994"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-lg sm:text-base"
+              >
+                Hubungi Saya
+              </a>
+            </div>
           </div>
           <div className="w-full self-end px-4 lg:w-1/2">
             <div className="relative mt-10 lg:right-0 lg:mt-0">
@@ -48,7 +69,7 @@ export default function Hero() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill="#14b8a6"
+                    fill="#3b82f6"
                     d="M45.7,-13.2C52.4,5.8,46.3,30.6,27.7,46C9,61.4,-22.2,67.4,-40.5,54.4C-58.9,41.4,-64.4,9.3,-55.5,-12.7C-46.6,-34.7,-23.3,-46.8,-1.9,-46.1C19.5,-45.5,39,-32.3,45.7,-13.2Z"
                     transform="translate(100 100) scale(1.1)"
                   />

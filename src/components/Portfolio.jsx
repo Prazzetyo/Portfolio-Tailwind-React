@@ -9,7 +9,7 @@ export default function Portfolio() {
   return (
     <section
             id="portfolio"
-            className="bg-slate-100 pb-16 pt-36 dark:bg-slate-800"
+            className="bg-white pb-16 pt-36 dark:bg-dark"
           >
         <div className="container">
         <div className="w-full px-4">
@@ -18,7 +18,7 @@ export default function Portfolio() {
                 Portfolio
             </h4>
             <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white">
-                Projek Terbaru
+                Projects Terbaru
             </h2>
             <p className="font-medium text-secondary">
                 Inilah beberapa karya yang saya buat dengan hati, logika, dan sedikit
@@ -35,7 +35,7 @@ export default function Portfolio() {
                 ERM RSKM (2023-2025)
             </h3>
             <p className="text-base font-medium text-secondary">
-                Projek gede ini aku kerjain bareng tim buat bikin sistem rekam medis elektronik di Rumah Sakit 
+                Projects gede ini aku kerjain bareng tim buat bikin sistem rekam medis elektronik di Rumah Sakit 
                 Kristen Mojowarno. Jadi semua data pasien — dari IGD, rawat jalan, rawat inap, lab, radiologi, 
                 farmasi sampai billing — nyambung jadi satu. Intinya biar dokter & perawat nggak ribet lagi, 
                 pasien juga lebih cepat dilayani. 🏥💻  
@@ -68,7 +68,7 @@ export default function Portfolio() {
                 Twitter Sentiment Analysis (2022)
             </h3>
             <p className="text-base font-medium text-secondary">
-                Projek ini dibuat pas submission akhir di Kampus Merdeka bareng Universitas 
+                Projects ini dibuat pas submission akhir di Kampus Merdeka bareng Universitas 
                 Indonesia (AICI). Fungsinya simpel: cari keyword di Twitter, terus dicek 
                 sentimennya—positif, negatif, atau netral. Kayak detektor mood netizen. 🤭
             </p>
@@ -101,7 +101,7 @@ export default function Portfolio() {
                 Makna Jiwa (2021)
             </h3>
             <p className="text-base font-medium text-secondary">
-                Projek ini lahir dari submission akhir di program Kampus Merdeka Dicoding. 
+                Projects ini lahir dari submission akhir di program Kampus Merdeka Dicoding. 
                 Intinya bikin aplikasi yang bisa nemenin dan bantu orang lebih peduli sama 
                 kesehatan mentalnya. ✨
             </p>
